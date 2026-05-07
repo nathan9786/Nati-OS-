@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mobile OS</title>
+  <style>
+    body {
+      margin: 0;
+      background: #007BFF; /* blue background */
+      font-family: Arial;
+    }
+
+    .app-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 60px;
+    }
+
+    .app-icon {
+      width: 90px;
+      height: 90px;
+      background: white;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .window {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      padding: 20px;
+    }
+
+    .button {
+      padding: 10px;
+      background: red;
+      color: white;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .top-bar {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HOME SCREEN -->
+<div id="home" class="app-screen">
+  <div class="app-icon" onclick="openSettings()">Settings</div>
+</div>
+
+<!-- SETTINGS APP -->
+<div id="settings" class="window">
+  <div class="top-bar">Settings</div>
+
+  <button class="button" onclick="resetSystem()">
+    Reset System (delete all downloaded apps)
+  </button>
+
+  <br><br>
+  <button onclick="closeSettings()">Back</button>
+</div>
+
+<script>
+  // built-in apps (cannot be deleted)
+  const builtInApps = ["settings"];
+
+  function openSettings() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("settings").style.display = "block";
+  }
+
+  function closeSettings() {
+    document.getElementById("settings").style.display = "none";
+    document.getElementById("home").style.display = "flex";
+  }
+
+  function resetSystem() {
+    // remove everything except built-in apps
+    localStorage.clear();
+
+    // you could simulate “downloaded apps”
+    alert("System reset complete. All downloaded apps deleted.");
+  }
+
+  // optional: fake storage system
+  if (!localStorage.getItem("apps")) {
+    localStorage.setItem("apps", JSON.stringify(builtInApps));
+  }
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+  <title>Mobile OS</title>
+  <style>
+    body {
+      margin: 0;
+      background: #007BFF; /* blue background */
+      font-family: Arial;
+    }
+
+    .app-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 60px;
+    }
+
+    .app-icon {
+      width: 90px;
+      height: 90px;
+      background: white;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .window {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      padding: 20px;
+    }
+
+    .button {
+      padding: 10px;
+      background: red;
+      color: white;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .top-bar {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HOME SCREEN -->
+<div id="home" class="app-screen">
+  <div class="app-icon" onclick="openSettings()">Settings</div>
+</div>
+
+<!-- SETTINGS APP -->
+<div id="settings" class="window">
+  <div class="top-bar">Settings</div>
+
+  <button class="button" onclick="resetSystem()">
+    Reset System (delete all downloaded apps)
+  </button>
+
+  <br><br>
+  <button onclick="closeSettings()">Back</button>
+</div>
+
+<script>
+  // built-in apps (cannot be deleted)
+  const builtInApps = ["settings"];
+
+  function openSettings() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("settings").style.display = "block";
+  }
+
+  function closeSettings() {
+    document.getElementById("settings").style.display = "none";
+    document.getElementById("home").style.display = "flex";
+  }
+
+  function resetSystem() {
+    // remove everything except built-in apps
+    localStorage.clear();
+
+    // you could simulate “downloaded apps”
+    alert("System reset complete. All downloaded apps deleted.");
+  }
+
+  // optional: fake storage system
+  if (!localStorage.getItem("apps")) {
+    localStorage.setItem("apps", JSON.stringify(builtInApps));
+  }
+</script>
+
+</body>
+</html>
