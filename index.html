@@ -43,12 +43,27 @@
       cursor: pointer;
       font-weight: bold;
     }
+    <div class="app-icon" onclick="openCalc()">
+  Calculator
+</div>
+
 
     /* Settings window */
     #settings {
       background: white;
       color: black;
     }
+    <div id="calculator" class="screen hidden">
+  <h1>Calculator</h1>
+
+  <input id="calcInput" placeholder="2+2*5">
+
+  <button onclick="calculate()">Solve</button>
+
+  <div id="calcResult">Result:</div>
+
+  <button onclick="goHome()">Close</button>
+</div>
 
     button {
       margin-top: 20px;
@@ -120,6 +135,22 @@
       alert("System reset complete (fake). All apps cleared.");
     }
   </script>
+  function openCalc() {
+  hideAll();
+  document.getElementById("calculator").classList.remove("hidden");
+}
+
+function calculate() {
+  let input = document.getElementById("calcInput").value;
+
+  try {
+    let result = Function("return " + input)();
+    document.getElementById("calcResult").innerText = "Result: " + result;
+  } catch {
+    document.getElementById("calcResult").innerText = "Error";
+  document.getElementById("calculator").classList.add("hidden");
+  }
+}
 
 </body>
 </html>
